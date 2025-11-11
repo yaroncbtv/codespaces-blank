@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+# Set your lab user name
+  name: yaroncbtv-hello-world
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+# Set your lab user name
+      app: yaroncbtv-hello-world
+  template:
+    metadata:
+      labels:
+# Set your lab user name
+        app: yaroncbtv-hello-world
+    spec:
+      containers:
+        - resources: {}
+          terminationMessagePath: /dev/termination-log
+          name: yaroncbtv-hello-world
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+# Update with the image you build in part 1
+          image: 'quay.io/yaroncbtv/test3:v1'
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
