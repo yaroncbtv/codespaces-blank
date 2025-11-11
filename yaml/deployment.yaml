@@ -24,7 +24,7 @@ spec:
               protocol: TCP
           imagePullPolicy: Always
 # Update with the image you build in part 1
-          image: 'quay.io/yaroncbtv/test3:v1'
+          image: 'quay.io/yaroncbtv/test3:v2'
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
