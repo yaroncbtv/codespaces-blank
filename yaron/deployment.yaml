@@ -22,7 +22,7 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
 # Update with the image you build in part 1
           image: 'quay.io/yaroncbtv/test3:v1'
       restartPolicy: Always
