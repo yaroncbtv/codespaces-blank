@@ -27,9 +27,9 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
-          imagePullPolicy: Always
+          imagePullPolicy: Never
 # Update with the image you build in part 1
-          image: 'quay.io/yaroncbtv/test3:v2'
+          image: 'yaroncbtv-hello-world:local'
           volumeMounts:
           - name: index-html
             mountPath: /tmp/html
