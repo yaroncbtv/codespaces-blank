@@ -15,6 +15,11 @@ spec:
 # Set your lab user name
         app: yaroncbtv-hello-world
     spec:
+      volumes:
+        - name: index-html
+          configMap:
+            name: '{{ .Chart.Name }}-html'
+            defaultMode: 420
       containers:
         - resources: {}
           terminationMessagePath: /dev/termination-log
@@ -25,6 +30,9 @@ spec:
           imagePullPolicy: Always
 # Update with the image you build in part 1
           image: 'quay.io/yaroncbtv/test3:v2'
+          volumeMounts:
+          - name: index-html
+            mountPath: /tmp/html
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
